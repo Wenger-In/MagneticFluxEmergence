@@ -1,0 +1,11 @@
+#! /bin/csh -f
+    make
+    gcc -o rebin rebin3d.c -lm
+    gcc -o prepro prepro.c -lm
+    gcc -o checkquality checkquality.c -lm
+    gcc -o saveboundary saveboundary.c -lm
+    gcc -o fftpot4 fftpot4.c -lm
+    gcc -o checkenergy checkenergy.c -lm
+    echo NLFFF code Version August 2011 installed
+
+    

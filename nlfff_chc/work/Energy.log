@@ -1,0 +1,20 @@
+
+ Input Files: B0.bin, Bout.bin  
+
+ Full Box, nx=260, ny=208,nz=208, nd=32 
+
+ Vector Correlation   VC = 0.867728
+ Cauchy Schwarz       CS = 0.881409
+ Norm Vector Error    NVE= 0.478950
+ Mean Vector Error    MVE= 0.537139
+ Relative magnetic Energy= 1.039070
+ -------------------------------------------------------------------
+
+ Inner Region, nx=196, ny=144,nz=176 
+
+ Vector Correlation   VC = 0.848997
+ Cauchy Schwarz       CS = 0.894064
+ Norm Vector Error    NVE= 0.488039
+ Mean Vector Error    MVE= 0.491383
+ Relative magnetic Energy= 1.053263
+ -------------------------------------------------------------------

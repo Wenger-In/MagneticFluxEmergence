@@ -1,0 +1,3 @@
+IDL> .r make_b0sav_small.pro;  
+cd work1
+IDL> .r auto_nlfff_hmi.pro

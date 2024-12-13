@@ -1,0 +1,4 @@
+1。把SHARP的BrBtBp以及各自的err文件放到cea_raw文件夹里，可以放多帧，跑出来裁剪好的sav文件在
+input文件夹里。裁剪出来的数据的x和y维度似乎必须能被4整除
+
+2。在/work路径下用auto_nlfff_hmi.pro跑sav文件进行外推，需要用linux系统。

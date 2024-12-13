@@ -1,0 +1,11 @@
+#! /bin/csh -f
+    make -f Makefile.helios
+    cc -o rebin rebin3d.c -lm
+    cc -o prepro prepro.c -lm
+    cc -o checkquality checkquality.c -lm
+    cc -o saveboundary saveboundary.c -lm
+    cc -o fftpot4 fftpot4.c -lm
+    cc -o checkenergy checkenergy.c -lm
+    echo NLFFF code Version August 2011 installed
+
+    
