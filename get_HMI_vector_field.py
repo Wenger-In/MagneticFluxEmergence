@@ -12,9 +12,9 @@ from datetime import datetime as dt_obj
 import drms
 from disambiguation import Basic, CoordinateTransform
 
-recordset = 'hmi.B_720s[2024.05.07_00:00:00]'
+recordset = 'hmi.B_720s[2024.05.10_22:48:00]'
 method = 2  # Method used to disambiguate the data
-save_dir = 'E:/Research/Data/HMI/VectorField/Bptr/'
+save_dir = 'E:/Research/Data/SDO/HMI/Field/Bptr/'
 
 basic_instance = Basic(recordset, method)
 data = Basic.get_data(basic_instance)
@@ -36,9 +36,9 @@ filename_date_time = file_date_time.strftime('%Y%m%d%H%M%S')
 filename = f"{filename_date_time}_bptr.dat"
 bptr.tofile(os.path.join(save_dir, filename))
 
-# plot Br
-plt.figure()
-abs_max = np.nanmax(np.abs(bptr[:,:,2]))
-plt.pcolormesh(bptr[:,:,2], cmap='RdBu', vmin=-abs_max, vmax=abs_max)
-plt.colorbar()
-plt.show()
+# # plot Br
+# plt.figure()
+# abs_max = np.nanmax(np.abs(bptr[:,:,2]))
+# plt.imshow(np.fliplr(bptr[:,:,2]), cmap='RdBu', vmin=-abs_max, vmax=abs_max)
+# plt.colorbar()
+# plt.show()

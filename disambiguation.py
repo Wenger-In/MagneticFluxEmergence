@@ -86,7 +86,7 @@ class Basic(object):
 
         baseurl = 'http://jsoc.stanford.edu'
         
-        save_dir = 'E:/Research/Data/HMI/VectorField/fits/'
+        save_dir = 'E:/Research/Data/SDO/HMI/Field/FIAD/'
         
         filenames = {
             'azimuth': self.generate_filename('azimuth'),

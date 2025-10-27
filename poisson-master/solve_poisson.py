@@ -11,8 +11,8 @@ sys.path.append(utils_path)
 from field_analyse_utils import calc_field_gradient, calc_field_divergence
 
 # Reading data from saved files
-Ve = 0.3
-sparse_factor = 10
+Ve = 0.5
+sparse_factor = 3
 cal_done = 0
 data_dir = 'E:/Research/Work/202405_solar_storm/reconstruction/sparse_factor=' + str(sparse_factor) + '/'
 data_name = 'origin_field_data_' + str(Ve) + '.csv'
@@ -48,13 +48,13 @@ Bz = Bz.reshape((nx, ny, nz))
 div_B = div_B.reshape((nx, ny, nz))
 
 if sparse_factor == 3: 
-    nx_cut, nz_cut = 171, 149
+    nx_cut, nz_cut = 257, 149
 elif sparse_factor == 5: 
     nx_cut, nz_cut = 129, 89
 elif sparse_factor == 10: 
-    nx_cut, nz_cut = 52, 46
+    nx_cut, nz_cut = 65, 46
 elif sparse_factor == 25:
-    nx_cut, nz_cut = 21, 19
+    nx_cut, nz_cut = 33, 19
 
 nx_beg = (nx-nx_cut) // 2
 nx_end = nx_beg + nx_cut
