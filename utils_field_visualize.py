@@ -104,7 +104,7 @@ def plot_streamlines(xx, yy, zz, Bx, By, Bz, label='|B|', scale_factor=1e-3, sta
         # start_z = [np.min(zz)+zz_range/10, np.max(zz)-zz_range/10]
         start_z = [np.min(zz)+zz_range/10]
         start_points = np.array([[x, y, z] for x in start_x for y in start_y for z in start_z])
-    elif start_point_type == 1: # by field magnitude in planes
+    elif start_point_type == 1: # by field magnitude in top and bottom planes
         start_points = []
         iz_top, iz_bot = 5, -5
         for ix in range(0, m, 2):
@@ -122,8 +122,17 @@ def plot_streamlines(xx, yy, zz, Bx, By, Bz, label='|B|', scale_factor=1e-3, sta
                     if Bmod[ix, iy, iz] > Bc:
                         start_points.append(np.array([xx[ix, iy, iz], yy[ix, iy, iz], zz[ix, iy, iz]]))
         start_points = np.array(start_points)
-    elif start_point_type == 3:
+    elif start_point_type == 3: # by field magnitude in specific planes
+        start_points = []
+        iz= -75
+        for ix in range(0, m, 2):
+            for iy in range(0, n, 2):
+                if Bmod[ix, iy, iz] > Bc:
+                    start_points.append(np.array([xx[ix, iy, iz], yy[ix, iy, iz], zz[ix, iy, iz]]))
         start_points = np.array(start_points)
+    elif start_point_type == 4:
+        start_points = np.array(start_points)
+        
 
     # Plotting the streamlines
     if plotter_existed:
@@ -135,16 +144,19 @@ def plot_streamlines(xx, yy, zz, Bx, By, Bz, label='|B|', scale_factor=1e-3, sta
         try:
             streamline = grid.streamlines(start_position=point, integration_direction='both', max_steps=20000000)
             if streamline.points.size > 0:
+                plot_flag = True
                 end_point = streamline.points[-1]
-                if (np.abs(end_point[0] - np.min(xx)) < edge_thres or np.abs(end_point[0] - np.max(xx)) < edge_thres or \
-                    np.abs(end_point[1] - np.min(yy)) < edge_thres or np.abs(end_point[1] - np.max(yy)) < edge_thres or \
-                    np.abs(end_point[2] - np.min(zz)) < edge_thres or np.abs(end_point[2] - np.max(zz)) < edge_thres):
+                # if (np.abs(end_point[0] - np.min(xx)) > edge_thres and np.abs(end_point[0] - np.max(xx)) > edge_thres and \
+                #     np.abs(end_point[1] - np.min(yy)) > edge_thres and np.abs(end_point[1] - np.max(yy)) > edge_thres and \
+                #     np.abs(end_point[2] - np.min(zz)) > edge_thres and np.abs(end_point[2] - np.max(zz)) > edge_thres):
+                #     plot_flag = False
+                if plot_flag:
                     if label == '|B|':
                         plotter.add_mesh(streamline, line_width=2, scalars='|B|', cmap='jet', 
                                         clim=[-np.max(np.abs(Bz))/clim_factor, np.max(np.abs(Bz))/clim_factor], \
                                         scalar_bar_args={'position_x': 0, 'position_y': 0.9, 'width': 0.5, 'height': 0.08})
                     elif label == 'Bz': 
-                        plotter.add_mesh(streamline, line_width=2, scalars='Bz', cmap='PiYG', 
+                        plotter.add_mesh(streamline, line_width=2, scalars='Bz', cmap='PiYG_r', 
                                         clim=[-np.max(np.abs(Bz))/clim_factor, np.max(np.abs(Bz))/clim_factor], \
                                         scalar_bar_args={'position_x': 0, 'position_y': 0.9, 'width': 0.5, 'height': 0.08})
                     # plotter.add_mesh(streamline.tube(radius=0.2), lighting=False)

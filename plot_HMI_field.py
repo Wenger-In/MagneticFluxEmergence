@@ -10,7 +10,7 @@ record_date = '20240507'
 record_time = '030000'
 
 ## import data
-field_dir = 'E:/Research/Data/SDO/HMI/Field/FIAD/'
+field_dir = 'E:/Research/Data/SDO/HMI/FullDisk/Field/FIAD/'
 field_file = record_date + record_time + '_field.fits'
 field_path = field_dir + field_file
 field_data, field_header = fits.getdata(field_path, header=True)
@@ -21,7 +21,7 @@ field_map = sunpy.map.Map(field_data, field_meta)
 
 print(field_header)
 
-Bptr_dir = 'E:/Research/Data/SDO/HMI/Field/Bptr/'
+Bptr_dir = 'E:/Research/Data/SDO/HMI/FullDisk/Field/Bptr/'
 Bptr_file = record_date + record_time + '_bptr.dat'
 Bptr = np.fromfile(Bptr_dir + Bptr_file).reshape(4096, 4096, 3)
 Bp = np.flipud(np.fliplr(np.squeeze(Bptr[:,:,0])))

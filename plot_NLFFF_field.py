@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from mpl_toolkits.mplot3d import Axes3D
 
-from field_analyse_utils import plot_arrows, plot_streamlines, plot_boundary_plane
+from utils_field_visualize import plot_arrows, plot_streamlines, plot_boundary_plane
 
 ########## Importing magnetic fields under the photosphere
 

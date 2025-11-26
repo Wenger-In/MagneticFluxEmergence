@@ -95,11 +95,11 @@ sc_factor = 1e-3
 start_points = load_start_points(xx_under, yy_under, zz_under, save_dir=save_under_dir, save_name='start_indices_manual.csv')
 # plotter = plot_streamlines(xx_under, yy_under, zz_under, Bx_under, By_under, Bz_under, \
 #     label='Bz', scale_factor=sc_factor, start_point_type=1, Bc=2000, thres_factor=50, clim_factor=1, plot_box=True)
-plotter = plot_streamlines(xx_under, yy_under, zz_under, Bx_under, By_under, Bz_under, 
-                           label='|B|', scale_factor=sc_factor, start_point_type=3, start_points=start_points, 
-                           Bc=1500, thres_factor=50, clim_factor=1, plot_box=True)
-# plotter = plot_streamlines(xx_under, yy_under, zz_under, Bx_under, By_under, Bz_under, \
-#     label='Bz', scale_factor=sc_factor, start_point_type=1, Bc=2500, thres_factor=50, clim_factor=1, plot_box=True)
+plotter = plot_streamlines(xx_under, yy_under, zz_under, Bx_under, By_under, Bz_under, \
+    label='Bz', scale_factor=sc_factor, start_point_type=3, Bc=1500, thres_factor=50, clim_factor=3, plot_box=True)
+# plotter = plot_streamlines(xx_under, yy_under, zz_under, Bx_under, By_under, Bz_under, 
+#                            label='|B|', scale_factor=sc_factor, start_point_type=4, start_points=start_points, 
+#                            Bc=1500, thres_factor=50, clim_factor=1, plot_box=True)
 
 plot_boundary_plane(xx_under, yy_under, zz_under, Bx_under, By_under, Bz_under, plotter, scale_factor=sc_factor)
 
